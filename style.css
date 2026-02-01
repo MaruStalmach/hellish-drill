@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@400;700;900&family=Roboto:wght@400;700&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #000;
+  background-image: 
+    radial-gradient(circle at 50% 50%, #1a0505 0%, #000000 100%);
+}
+
+/* Nowa klasa - bezpieczna i mroczna */
+.font-hell {
+  font-family: 'Grenze Gotisch', cursive;
+}
+
+h1 {
+  font-family: 'Grenze Gotisch', cursive;
+  /* Zwiększona czcionka w tytule bo gotyk jest węższy */
+  text-align: center;
+  
+  background: linear-gradient(to bottom, #fca5a5, #dc2626, #7f1d1d, #000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  filter: drop-shadow(0px 4px 10px rgba(220, 38, 38, 0.8));
+  animation: hellFire 2s infinite alternate;
+}
+
+@keyframes hellFire {
+  from { filter: drop-shadow(0px 0px 5px rgba(220, 38, 38, 0.6)); }
+  to { filter: drop-shadow(0px 0px 20px rgba(255, 69, 0, 1)); }
+}
+
+.info-box {
+  display: none;
+}
+
+.info-box.visible {
+  display: block;
+  animation: fadeIn 0.3s ease-out;
+}
+
+code {
+  background-color: #3f0d0d;
+  padding: 0.1rem 0.4rem;
+  border: 1px solid #7f1d1d;
+  border-radius: 0.25rem;
+  color: #fca5a5;
+  font-family: monospace;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #111; 
+}
+::-webkit-scrollbar-thumb {
+  background: #7f1d1d; 
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #dc2626; 
+}
