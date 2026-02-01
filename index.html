@@ -9,91 +9,90 @@
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
     <link
-      href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@400;700;900&family=Roboto:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Rubik+Wet+Paint&family=Roboto:wght@400;700&display=swap"
       rel="stylesheet" />
 
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body
-    class="bg-black min-h-screen text-gray-300 selection:bg-red-900 selection:text-white">
+    class="bg-black min-h-screen text-gray-300 selection:bg-red-900 selection:text-white overflow-x-hidden">
+    <div
+      class="fixed inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-red-900/20 via-black/60 to-black z-0"></div>
+
     <div
       class="container mx-auto px-4 py-8 flex flex-col items-center max-w-3xl relative z-10">
       <h1
-        class="mb-8 hover:scale-105 transition-transform duration-300 tracking-widest text-red-600 drop-shadow-lg font-hell text-6xl">
-        👹 PIEKIELNY DRILL 👹
+        class="mb-10 hover:scale-105 transition-transform duration-300 tracking-widest text-red-600 font-hell text-6xl md:text-7xl text-center leading-tight bloody-title">
+        PIEKIELNY DRILL
       </h1>
 
       <div class="flex flex-col items-center gap-4 mb-8 w-full">
         <div class="flex flex-wrap justify-center gap-3">
           <label
-            class="bg-red-900 hover:bg-red-700 text-white border border-red-600 font-bold py-3 px-6 rounded shadow-[0_0_15px_rgba(220,38,38,0.5)] cursor-pointer transition-all hover:-translate-y-1 active:scale-95 flex items-center gap-2 uppercase tracking-wider">
+            class="bg-red-950 hover:bg-red-900 text-red-200 border border-red-700 font-bold py-4 px-8 rounded shadow-[0_0_20px_rgba(220,38,38,0.4)] cursor-pointer transition-all hover:-translate-y-1 active:scale-95 flex items-center gap-2 uppercase tracking-wider font-hell text-xl">
             <span>🩸</span> Wgraj ofiarę (.txt)
             <input type="file" id="fileInput" accept=".txt" class="hidden" />
           </label>
 
           <button
             onclick="toggleInfo()"
-            class="bg-neutral-800 hover:bg-neutral-700 text-gray-300 border border-gray-600 font-bold py-3 px-6 rounded shadow-lg transition-all hover:-translate-y-1 active:scale-95 flex items-center gap-2 uppercase">
-            <span>💀</span> Instrukcja tortur
+            class="bg-neutral-900 hover:bg-neutral-800 text-gray-400 border border-gray-700 font-bold py-4 px-8 rounded shadow-lg transition-all hover:-translate-y-1 active:scale-95 flex items-center gap-2 uppercase font-hell text-xl">
+            <span>💀</span> Instrukcja
           </button>
         </div>
 
         <p
           id="fileName"
-          class="text-red-500 font-bold bg-black/80 px-4 py-1 rounded border border-red-900 hidden animate-pulse font-mono"></p>
+          class="text-red-500 font-bold bg-black/90 px-4 py-2 mt-4 rounded border border-red-900 hidden animate-pulse font-mono shadow-[0_0_15px_red]"></p>
       </div>
 
       <div
         id="infoBox"
-        class="info-box shadow-[0_0_20px_rgba(0,0,0,0.8)] mb-8 bg-neutral-900 border border-red-800 text-gray-300">
+        class="info-box shadow-[0_0_30px_rgba(220,38,38,0.2)] mb-8 bg-neutral-900/95 border-2 border-red-900 text-gray-300 backdrop-blur-sm">
         <h3
-          class="font-bold text-red-600 text-3xl mb-3 border-b border-red-900 pb-2 font-hell tracking-wide">
+          class="font-bold text-red-600 text-3xl mb-4 border-b border-red-900 pb-2 font-hell tracking-wide drop-shadow-md">
           📝 Pakt z diabłem (Format .txt)
         </h3>
         <p class="mb-2">
-          Masz stworzyć plik, inaczej nic z tego nie będzie. Pytania oddzielasz
+          Stwórz plik, inaczej będziesz cierpieć. Pytania oddzielasz
           <strong>pustą linią</strong>.
         </p>
-        <ul class="list-disc list-inside space-y-1 ml-2 text-sm text-gray-400">
-          <li>Pierwsza linia to <strong>Pytanie</strong>.</li>
-          <li>Kolejne to odpowiedzi.</li>
-          <li>Poprawną oznaczasz <code>>>></code> (jak diabeł widłami).</li>
-          <li>Wyjaśnienie (opcjonalne) zaczynasz od <code>---</code>.</li>
+        <ul
+          class="list-disc list-inside space-y-1 ml-2 text-sm text-gray-400 font-mono">
+          <li>1. linia: <strong>Pytanie</strong></li>
+          <li>Kolejne: Odpowiedzi</li>
+          <li>Poprawna: <code>>>></code> na początku</li>
+          <li>Wyjaśnienie: <code>---</code> na początku</li>
         </ul>
 
         <div
-          class="mt-4 bg-black p-4 rounded border border-red-900 font-mono text-xs text-red-400 leading-6">
-          Ile rogów ma diabeł?<br />
-          Jeden<br />
-          >>> Dwa (zazwyczaj)<br />
-          Zero<br />
-          --- No chyba że je ułamał na twoim tępym łbie.<br />
-          <br />
-          Czy zdasz ten egzamin?<br />
-          >>> Może, jak przestaniesz być leniem<br />
-          Nie ma szans
+          class="mt-4 bg-black p-4 rounded border border-red-900/50 font-mono text-xs text-red-400 leading-6 shadow-inner">
+          Kogo nienawidzisz?<br />
+          Siebie<br />
+          >>> Wszystkich<br />
+          --- Prawidłowa postawa.
         </div>
         <button
           onclick="toggleInfo()"
-          class="mt-4 text-xs text-red-600 hover:text-red-400 underline w-full text-center uppercase font-bold">
+          class="mt-6 text-sm text-red-600 hover:text-red-400 hover:underline w-full text-center uppercase font-bold tracking-widest">
           Zamknij to gówno
         </button>
       </div>
 
       <div id="app" class="w-full">
         <div
-          class="bg-neutral-900/90 backdrop-blur-md rounded shadow-[0_0_30px_rgba(220,38,38,0.2)] p-8 border border-red-900/50 text-center">
-          <p class="text-4xl text-red-600 font-hell tracking-wide mb-4">
-            BRAK DANYCH, ŚMIERTELNIKU.
+          class="bg-neutral-900/80 backdrop-blur-md rounded-lg shadow-[0_0_50px_rgba(220,38,38,0.15)] p-12 border border-red-900/50 text-center min-h-[300px] flex flex-col justify-center items-center">
+          <p
+            class="text-5xl text-red-600 font-hell tracking-wide mb-6 bloody-text">
+            BRAK DANYCH,<br />ŚMIERTELNIKU.
           </p>
-          <p class="text-sm text-gray-500">Wgraj plik albo spadaj.</p>
+          <p class="text-gray-500 font-mono">
+            Wgraj plik albo zgiń w niewiedzy.
+          </p>
         </div>
       </div>
     </div>
-
-    <div
-      class="fixed inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-black/40 to-black z-0"></div>
 
     <script src="app.js"></script>
   </body>
